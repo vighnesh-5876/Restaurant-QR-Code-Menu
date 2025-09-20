@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -54,8 +53,7 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
       const result = await response.json();
 
       if (result.success) {
-        // Close immediately without showing success message
-        onClose();
+        onClose(); // ✅ Close only after successful submit
       } else {
         setSubmitStatus('error');
       }
@@ -75,13 +73,7 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-800">Contact Information</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
-            disabled={isSubmitting}
-          >
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
+          {/* ❌ Removed close button */}
         </div>
 
         {/* Form */}
@@ -129,19 +121,11 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
                 </div>
               )}
 
-              <div className="flex gap-3 pt-4">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  disabled={isSubmitting}
-                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Cancel
-                </button>
+              <div className="pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting || !formData.name.trim() || !formData.whatsapp.trim()}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
