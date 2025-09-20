@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { menuCardImages } from '../data/menuData';
 
 interface PDFMenuModalProps {
@@ -32,14 +32,8 @@ export const PDFMenuModal: React.FC<PDFMenuModalProps> = ({ isOpen, onClose }) =
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4">
       <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 bg-white">
+        <div className="flex items-center justify-center p-3 sm:p-4 border-b border-gray-200 bg-white">
           <h2 className="text-lg sm:text-xl font-semibold text-gray-800">Menu Card</h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
-          >
-            <X className="w-5 h-5 text-gray-500" />
-          </button>
         </div>
 
         {/* Carousel Content */}

@@ -509,25 +509,25 @@ export const menuCardImages = [
   {
     id: 1,
     title: "Menu Page 1",
-    image: "https://burst.shopifycdn.com/photos/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg?width=1000&format=pjpg&exif=0&iptc=0L",
+    image: "https://5.imimg.com/data5/SL/BC/RY/SELLER-54701692/menu-card-printing-service.jpeg",
     description: "First page of our menu"
   },
   {
     id: 2,
     title: "Menu Page 2", 
-    image: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg",
+    image: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/daily-food-menu-card-for-restaurant-design-template-343e412e422270069dfee41a4c816970_screen.jpg?ts=1733990582",
     description: "Second page of our menu"
   },
   {
     id: 3,
     title: "Menu Page 3",
-    image: "https://i.pinimg.com/736x/2d/95/e5/2d95e5886fc4c65a6778b5fee94a7d59.jpg", 
+    image: "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1708445862/catalog/1544703271697907712/bbilfpwxkpoybhhxwhfr.webp", 
     description: "Third page of our menu"
   },
   {
     id: 4,
     title: "Menu Page 3",
-    image: "https://images.ctfassets.net/hrltx12pl8hq/28ECAQiPJZ78hxatLTa7Ts/2f695d869736ae3b0de3e56ceaca3958/free-nature-images.jpg?fit=fill&w=1200&h=630", 
+    image: "https://img.pikbest.com/templates/20240711/food-menu-card-template-design-for-restaurants-design_10662181.jpg!w700wp", 
     description: "Third page of our menu"
   }
   // Add as many menu card pages as you need
