@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { menuCardImages } from '../data/menuData';
 
 interface PDFMenuModalProps {
@@ -29,19 +29,25 @@ export const PDFMenuModal: React.FC<PDFMenuModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-2 sm:p-4">
-      <div className="bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-center p-3 sm:p-4 border-b border-gray-200 bg-white">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-800">Menu Card</h2>
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+          <h2 className="text-xl font-semibold text-gray-800">Menu Card</h2>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+          >
+            <X className="w-5 h-5 text-gray-500" />
+          </button>
         </div>
 
         {/* Carousel Content */}
         <div className="relative bg-gray-50">
           {/* Main Image Display */}
-          <div className="relative h-[70vh] sm:h-[75vh] flex items-center justify-center overflow-hidden">
+          <div className="relative h-[600px] flex items-center justify-center overflow-hidden">
             {menuCardImages.length > 0 && (
-              <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
+              <div className="w-full h-full flex items-center justify-center p-4">
                 <img
                   src={menuCardImages[currentIndex].image}
                   alt={menuCardImages[currentIndex].title}
@@ -59,35 +65,40 @@ export const PDFMenuModal: React.FC<PDFMenuModalProps> = ({ isOpen, onClose }) =
               <>
                 <button
                   onClick={prevSlide}
-                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 sm:p-3 shadow-lg transition-all duration-200 z-10"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
                 >
-                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+                  <ChevronLeft className="w-6 h-6 text-gray-700" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 sm:p-3 shadow-lg transition-all duration-200 z-10"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200"
                 >
-                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+                  <ChevronRight className="w-6 h-6 text-gray-700" />
                 </button>
               </>
             )}
-
-            {/* Counter */}
-            {menuCardImages.length > 1 && (
-              <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black bg-opacity-60 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
-                {currentIndex + 1} / {menuCardImages.length}
-              </div>
-            )}
           </div>
+
+          {/* Image Info */}
+          {menuCardImages.length > 0 && (
+            <div className="px-6 py-4 bg-white border-t border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                {menuCardImages[currentIndex].title}
+              </h3>
+              <p className="text-gray-600">
+                {menuCardImages[currentIndex].description}
+              </p>
+            </div>
+          )}
 
           {/* Carousel Indicators */}
           {menuCardImages.length > 1 && (
-            <div className="flex justify-center space-x-2 py-3 sm:py-4 bg-white">
+            <div className="flex justify-center space-x-2 py-4 bg-white">
               {menuCardImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
                     index === currentIndex
                       ? 'bg-blue-600 scale-110'
                       : 'bg-gray-300 hover:bg-gray-400'
@@ -97,11 +108,18 @@ export const PDFMenuModal: React.FC<PDFMenuModalProps> = ({ isOpen, onClose }) =
             </div>
           )}
 
+          {/* Counter */}
+          {menuCardImages.length > 1 && (
+            <div className="absolute top-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+              {currentIndex + 1} / {menuCardImages.length}
+            </div>
+          )}
+
           {/* Empty State */}
           {menuCardImages.length === 0 && (
-            <div className="h-[70vh] sm:h-[75vh] flex items-center justify-center">
-              <div className="text-center px-4">
-                <p className="text-gray-500 text-base sm:text-lg mb-4">No menu card images available.</p>
+            <div className="h-[600px] flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-gray-500 text-lg mb-4">No menu card images available.</p>
                 <p className="text-gray-400 text-sm">
                   Add images to the menuCardImages array in menuData.ts
                 </p>
