@@ -26,10 +26,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex flex-col space-y-4">
           {/* Logo and Title */}
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Bella Vista
             </h1>
-            <p className="text-gray-600 text-sm md:text-base mt-1">Fine Dining Experience</p>
+            <p className="text-gray-600 text-xs sm:text-sm md:text-base mt-1">Fine Dining Experience</p>
           </div>
 
           {/* Search and Controls */}

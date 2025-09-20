@@ -26,12 +26,12 @@ export const BackToTop: React.FC = () => {
 
   return (
     <button
-      className={`fixed bottom-8 right-8 z-40 p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+      className={`fixed bottom-6 sm:bottom-8 right-6 sm:right-8 z-40 p-2 sm:p-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
       }`}
       onClick={scrollToTop}
     >
-      <ChevronUp className="h-6 w-6" />
+      <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
     </button>
   );
 };

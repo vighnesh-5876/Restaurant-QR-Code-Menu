@@ -30,27 +30,27 @@ export const FilterModal: React.FC<FilterModalProps> = ({
       <div className="flex items-center justify-center min-h-screen p-4">
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
         
-        <div className="relative bg-white rounded-2xl p-6 w-full max-w-md shadow-2xl">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">Filters</h2>
+        <div className="relative bg-white rounded-2xl p-4 sm:p-6 w-full max-w-md shadow-2xl">
+          <div className="flex justify-between items-center mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Filters</h2>
             <button
               onClick={onClose}
               className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Category Filter */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-3">Category</h3>
+              <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-3">Category</h3>
               <div className="grid grid-cols-2 gap-2">
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => onCategoryChange(category)}
-                    className={`p-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    className={`p-2 sm:p-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
                       selectedCategory === category
                         ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -64,9 +64,9 @@ export const FilterModal: React.FC<FilterModalProps> = ({
 
             {/* Price Range Filter */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-3">Price Range</h3>
+              <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-3">Price Range</h3>
               <div className="space-y-3">
-                <div className="flex justify-between text-sm text-gray-600">
+                <div className="flex justify-between text-xs sm:text-sm text-gray-600">
                   <span>₹{priceRange[0]}</span>
                   <span>₹{priceRange[1]}</span>
                 </div>
@@ -84,7 +84,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                 <div className="grid grid-cols-3 gap-2">
                   <button
                     onClick={() => onPriceRangeChange([0, 500])}
-                    className={`p-2 rounded-lg text-sm transition-all ${
+                    className={`p-2 rounded-lg text-xs sm:text-sm transition-all ${
                       priceRange[1] <= 25 ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
                     }`}
                   >
@@ -92,7 +92,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                   </button>
                   <button
                     onClick={() => onPriceRangeChange([0, 1000])}
-                    className={`p-2 rounded-lg text-sm transition-all ${
+                    className={`p-2 rounded-lg text-xs sm:text-sm transition-all ${
                       priceRange[1] <= 50 && priceRange[1] > 25 ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
                     }`}
                   >
@@ -100,7 +100,7 @@ export const FilterModal: React.FC<FilterModalProps> = ({
                   </button>
                   <button
                     onClick={() => onPriceRangeChange([0, 2000])}
-                    className={`p-2 rounded-lg text-sm transition-all ${
+                    className={`p-2 rounded-lg text-xs sm:text-sm transition-all ${
                       priceRange[1] > 50 ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
                     }`}
                   >
@@ -112,33 +112,33 @@ export const FilterModal: React.FC<FilterModalProps> = ({
 
             {/* Dietary Preferences */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-3">Dietary Preferences</h3>
-              <label className="flex items-center gap-3 cursor-pointer">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-3">Dietary Preferences</h3>
+              <label className="flex items-center gap-2 sm:gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={showVegetarianOnly}
                   onChange={(e) => onVegetarianToggle(e.target.checked)}
-                  className="w-5 h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500"
                 />
-                <span className="text-gray-700">Vegetarian only</span>
+                <span className="text-sm sm:text-base text-gray-700">Vegetarian only</span>
               </label>
             </div>
           </div>
 
-          <div className="mt-8 flex gap-3">
+          <div className="mt-6 sm:mt-8 flex gap-2 sm:gap-3">
             <button
               onClick={() => {
                 onCategoryChange('All');
                 onPriceRangeChange([0, 2000]);
                 onVegetarianToggle(false);
               }}
-              className="flex-1 py-3 px-4 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors duration-200"
+              className="flex-1 py-2 sm:py-3 px-3 sm:px-4 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors duration-200 text-sm sm:text-base"
             >
               Clear All
             </button>
             <button
               onClick={onClose}
-              className="flex-1 py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200"
+              className="flex-1 py-2 sm:py-3 px-3 sm:px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
             >
               Apply Filters
             </button>

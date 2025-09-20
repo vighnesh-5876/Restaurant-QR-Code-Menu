@@ -71,16 +71,16 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 scale-100">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-800">Contact Information</h2>
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Contact Information</h2>
           {/* ❌ Removed close button */}
         </div>
 
         {/* Form */}
-        <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="p-4 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Full Name *
                 </label>
                 <input
@@ -91,13 +91,13 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
                   onChange={handleInputChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed text-sm sm:text-base"
                   placeholder="Enter your full name"
                 />
               </div>
 
               <div>
-                <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="whatsapp" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   WhatsApp Number *
                 </label>
                 <input
@@ -108,28 +108,28 @@ export const ContactFormModal: React.FC<ContactFormModalProps> = ({ isOpen, onCl
                   onChange={handleInputChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed text-sm sm:text-base"
                   placeholder="Enter your WhatsApp number"
                 />
               </div>
 
               {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4">
-                  <p className="text-red-600 text-sm">
+                <div className="bg-red-50 border border-red-200 rounded-xl p-3 sm:p-4">
+                  <p className="text-red-600 text-xs sm:text-sm">
                     There was an error submitting your information. Please try again.
                   </p>
                 </div>
               )}
 
-              <div className="pt-4">
+              <div className="pt-3 sm:pt-4">
                 <button
                   type="submit"
                   disabled={isSubmitting || !formData.name.trim() || !formData.whatsapp.trim()}
-                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-sm sm:text-base"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div>
+                      <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-2 border-white border-t-transparent mr-2"></div>
                       Submitting...
                     </>
                   ) : (

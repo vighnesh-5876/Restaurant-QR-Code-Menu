@@ -87,25 +87,25 @@ export const MenuItem: React.FC<MenuItemProps> = ({
       )}
 
       {/* Content */}
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+      <div className="p-4 sm:p-6">
+        <div className="flex justify-between items-start mb-2 sm:mb-3">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
             {item.name}
           </h3>
           <div className="text-right">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               ₹{item.price}
             </span>
           </div>
         </div>
         
-        <p className="text-gray-600 text-sm line-clamp-2 mb-4 leading-relaxed">
+        <p className="text-gray-600 text-xs sm:text-sm line-clamp-2 mb-3 sm:mb-4 leading-relaxed">
           {item.description}
         </p>
         
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <span className="text-xs text-gray-500 bg-gray-100 px-2 sm:px-3 py-1 rounded-full">
               {item.category}
             </span>
             {isInCart && (
@@ -117,11 +117,11 @@ export const MenuItem: React.FC<MenuItemProps> = ({
           </div>
           
           {/* Popularity Stars */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
               <span
                 key={i}
-                className={`text-sm ${
+                className={`text-xs sm:text-sm ${
                   i < Math.floor(item.popularity / 2)
                     ? 'text-yellow-400'
                     : 'text-gray-300'

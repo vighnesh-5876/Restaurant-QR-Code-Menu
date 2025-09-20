@@ -149,22 +149,22 @@ function App() {
         onCategoryChange={setActiveCategory}
       />
 
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="max-w-6xl mx-auto px-4 py-6 sm:py-8">
         {/* Results Info */}
-        <div className="mb-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+        <div className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4">
             <div>
-              <h2 className="text-2xl font-bold text-gray-800">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
                 {activeCategory === 'All' ? 'All Menu Items' : activeCategory}
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 {filteredAndSortedItems.length} item{filteredAndSortedItems.length !== 1 ? 's' : ''} found
                 {searchTerm && ` for "${searchTerm}"`}
               </p>
             </div>
 
             {totalCartItems > 0 && (
-              <div className="text-sm text-blue-600 bg-blue-50 px-3 py-2 rounded-full">
+              <div className="text-xs sm:text-sm text-blue-600 bg-blue-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full">
                 {totalCartItems} item{totalCartItems !== 1 ? 's' : ''} in cart
               </div>
             )}
@@ -173,7 +173,7 @@ function App() {
 
         {/* Menu Grid */}
         {filteredAndSortedItems.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {filteredAndSortedItems.map((item, index) => (
               <div
                 key={item.id}
@@ -191,10 +191,10 @@ function App() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">No items found</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="text-center py-12 sm:py-16">
+            <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🔍</div>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">No items found</h3>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
               Try adjusting your search terms or filters to find what you're looking for.
             </p>
             <button
@@ -204,7 +204,7 @@ function App() {
                 setPriceRange([0, 2000]);
                 setShowVegetarianOnly(false);
               }}
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200"
+              className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-200 text-sm sm:text-base"
             >
               Clear All Filters
             </button>
@@ -254,13 +254,13 @@ function App() {
       <BackToTop />
       
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 mt-16">
+      <footer className="bg-gray-900 text-white py-8 sm:py-12 mt-12 sm:mt-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4">Bella Vista</h3>
-          <p className="text-gray-400 mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Bella Vista</h3>
+          <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base">
             Experience the finest dining with our carefully curated menu
           </p>
-          <div className="flex justify-center gap-6 text-sm text-gray-400">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-400">
             <span>📍 123 Fine Dining St, Culinary District</span>
             <span>📞 (555) 123-4567</span>
             <span>✉️ info@bellavista.com</span>
